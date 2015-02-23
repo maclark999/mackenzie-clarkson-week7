@@ -9,8 +9,8 @@
   <tbody>
     <% @courses.each do |course| %>
     <tr>
-      <td>course.title</td>
-      <td>course.night</td>
+      <td><%=link_to course.title, course%></td>
+      <td><%= course.night%></td>
     </tr>
     <% end %>
   </tbody>

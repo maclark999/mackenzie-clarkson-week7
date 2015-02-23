@@ -25,6 +25,12 @@ class CoursesController < ApplicationController
   end
 
   def update
+    @course.update_attributes(course_params)
+    if @course.save
+      redirect_to @course
+    else
+      render 'new'
+    end
   end
 
   def destroy
