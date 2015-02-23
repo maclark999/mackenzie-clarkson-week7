@@ -23,9 +23,18 @@ class UsersController < ApplicationController
   end
 
   def update
+    if @user.update_attributes(user_params)
+      redirect_to @user
+    else
+      render 'new'
+    end
+
   end
 
   def destroy
+    if @user.destroy
+      redirect_to users_path
+    end
   end
 
   private
