@@ -2,7 +2,7 @@
   <thead>
     <tr>
       <th>Course Title</th>
-      <th>Night Class?</th>
+      <th>Day or Night</th>
     </tr>
   </thead>
 
@@ -10,10 +10,17 @@
     <% @courses.each do |course| %>
     <tr>
       <td><%=link_to course.title, course%></td>
-      <td><%= course.night%></td>
+      <td><%  if course.night %>
+          Night
+          <% else %>
+          Day
+          <% end %></td>
+      <td><%= link_to 'Edit', edit_course_path(course) %></td>
+      <td><%= link_to 'Delete', course, method: :delete, data: {confirm: 'Are you sure?'} %></td>
     </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to 'Add Course', new_course_path %>
+<%= link_to 'Add Course', new_course_path %><br>
+<%= link_to 'See all Users', users_path %>

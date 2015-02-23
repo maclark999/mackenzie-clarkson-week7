@@ -1,6 +1,10 @@
-<h1><%= @course.title %></h1>
-<p><%= @course.night %></p>
+<h1>Course Title: <%= @course.title %></h1>
+<p>Day or Night: <%  if @course.night %>
+    Night Course
+    <% else %>
+    Day Course
+    <% end %></p>
 
 <%= link_to 'Edit', edit_course_path %>
-<%= link_to 'Delete', course_path, method: :delete, data: {confirm: 'are you sure?'} %>
+<%= link_to 'Delete', course_path, method: :delete, data: {confirm: 'are you sure?'} %><br>
 <%= link_to 'See all courses', courses_path %>

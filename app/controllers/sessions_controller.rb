@@ -9,13 +9,14 @@ class SessionsController < ApplicationController
       redirect_to root_path
       flash[:notice] = 'Welcome Back!'
     else
-      render 'new'
       flash[:alert] = "Username/password invalid"
+      render 'new'
     end
   end
 
   def destroy
     session.clear
     redirect_to root_path
+    flash[:notice] = 'Goodbye'
   end
 end
